@@ -3,16 +3,16 @@
 require_once 'core.php';
 
 if($_POST) {
-
-		$id=mysqli_real_escape_string($con,(strip_tags($_POST["id"],ENT_QUOTES)));
+	
 		$nombre=mysqli_real_escape_string($con,(strip_tags($_POST["nombre"],ENT_QUOTES)));
-		$compania=mysqli_real_escape_string($con,(strip_tags($_POST["companias"],ENT_QUOTES)));	
+		$compania=mysqli_real_escape_string($con,(strip_tags($_POST["compania"],ENT_QUOTES)));
+		
 			
-			$consulta = "UPDATE proyecto SET nombre_proyecto='$nombre', id_compania='$compania' WHERE id_proyecto='$id'";
+			$consulta = "INSERT INTO proyecto (nombre_proyecto, id_compania) VALUES ('$nombre','$compania')";
 		
 		if($con->query($consulta) === TRUE) {
 					
-				$messages[] = "Los datos han sido actualizados satisfactoriamente.";
+				$messages[] = "Los datos han sido guardados satisfactoriamente.";
 			} else{
 				$errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($con);
 			}
