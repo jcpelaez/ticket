@@ -5,9 +5,10 @@ require_once 'core.php';
 if($_POST) {
 
 		$id=mysqli_real_escape_string($con,(strip_tags($_POST["id"],ENT_QUOTES)));
-		$nombre=mysqli_real_escape_string($con,(strip_tags($_POST["nombre"],ENT_QUOTES)));	
+		$nombre=mysqli_real_escape_string($con,(strip_tags($_POST["nombre"],ENT_QUOTES)));
+		$compania=mysqli_real_escape_string($con,(strip_tags($_POST["companias"],ENT_QUOTES)));	
 			
-			$consulta = "UPDATE proyecto SET nombre_proyecto='$nombre' WHERE id_proyecto='$id'";
+			$consulta = "UPDATE proyecto SET nombre_proyecto='$nombre', id_compania='$compania' WHERE id_proyecto='$id'";
 		
 		if($con->query($consulta) === TRUE) {
 					
